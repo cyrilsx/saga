@@ -1,0 +1,25 @@
+@startuml
+skinparam linetype ortho
+skinparam {
+    ArrowColor DeepSkyBlue
+    ActorBorderColor DeepSkyBlue
+    LifeLineBorderColor blue
+    LifeLineBackgroundColor #A9DCDF
+}
+
+skinparam component {
+    BackgroundColor<<SAGA Execution Coordinator>> Green
+}
+
+[SAGA Execution Coordinator] <-- [Card Service T1] : start/end T1
+[SAGA Execution Coordinator] <-- [Order Service T2] : start/end T2
+[SAGA Execution Coordinator] <-- [Stock Service T3] : start/end T3
+
+
+startup <-. [Card Service T1] : register
+startup <-. [Order Service T2] : register
+startup <-. [Stock Service T3] : register
+
+
+
+@enduml
